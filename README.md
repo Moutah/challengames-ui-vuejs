@@ -1,5 +1,7 @@
 # challengames-ui-vuejs
 
+UNDER CONSTRUCTION
+
 ## Project setup
 ```
 npm install
