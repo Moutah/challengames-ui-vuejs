@@ -15,7 +15,7 @@
                             <v-text-field label="Challenge name" readonly v-bind:value="challenge.name"></v-text-field>
                         </v-flex>
                         <v-flex xs6>
-                            <v-text-field label="Status"></v-text-field>
+                            <v-text-field v-bind:value="challenge.status" label="Status"></v-text-field>
                         </v-flex>
                         <v-flex xs12>
                             <v-textarea
@@ -31,6 +31,16 @@
                         </v-flex>
                         <v-flex xs6>
                             <v-text-field label="Challengee" readonly v-bind:value="challenge.challengee"></v-text-field>
+                        </v-flex>
+                        <v-flex xs12>
+                            <v-text-field v-bind:value="challenge.date"
+                                label="Deadline"
+                                prepend-icon="event"
+                                readonly
+                                v-on="on"
+                            >
+                            </v-text-field>
+
                         </v-flex>
                     </v-layout>
                 </v-container>

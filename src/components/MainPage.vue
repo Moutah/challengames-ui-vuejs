@@ -53,8 +53,7 @@
         name: 'MainPage',
         components: {
             CreateChallengeButton,
-            MostRecentChallengesGrid,
-
+            MostRecentChallengesGrid
         },
         props: ['connection'],
         data () {
