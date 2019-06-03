@@ -19,10 +19,10 @@
                             ></v-textarea>
                         </v-flex>
                         <v-flex xs6>
-                            <v-text-field label="Challenger" readonly="true" v-bind:value="connection.username"></v-text-field>
+                            <v-text-field label="Challenger" readonly v-bind:value="connection.username"></v-text-field>
                         </v-flex>
                         <v-flex xs6>
-                            <v-text-field label="Challengee" required="true"></v-text-field>
+                            <v-text-field label="Challengee" required></v-text-field>
                         </v-flex>
                     </v-layout>
                 </v-container>
