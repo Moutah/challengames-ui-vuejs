@@ -11,7 +11,7 @@ UI exploiting an API that has been designed in order to give the possibility to 
 - CSS
 
 ## Current status
-Under development
+In development
 
 ## How to use it
 
