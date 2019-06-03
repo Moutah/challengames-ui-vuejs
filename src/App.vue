@@ -17,6 +17,7 @@
         <NavigationDrawer
             @pageChange="pageChange"
             :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
+            
         <v-content>
             <MainPage v-if="pageContent == 'mainpage'" :connection="connection"/>
             <div v-else>
