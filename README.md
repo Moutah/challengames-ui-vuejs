@@ -5,8 +5,8 @@ UI exploiting an API that has been designed in order to give the possibility to 
 
 ## Technologies
 - Javascript
-- VueJS
-- Vuetify
+- VueJS (2.6.x)
+- Vuetify (1.5.x)
 - HTML
 - CSS
 
