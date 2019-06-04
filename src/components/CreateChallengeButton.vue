@@ -1,19 +1,21 @@
-<template v-slot:activator="{ on }">
-    <div>
-        <v-btn v-on="on" :disabled="!connection.isConnected" color="primary">
-            Add a new challenge <v-icon>add_box</v-icon>
-        </v-btn>
-        <CreateChallengeDialog :connection="connection" :dialog="dialog" />
-    </div>
+<template>
+    <v-dialog v-model="dialog">
+        <template v-slot:activator="{ on }">
+            <v-btn v-on="on" :disabled="!connection.isConnected" color="primary">
+                Add a new challenge <v-icon>add_box</v-icon>
+            </v-btn>
+        </template>
+        <CreateChallengeDialogContent @closeCreateChallengeDialog="dialog=false" :connection="connection" :dialog="dialog" />
+    </v-dialog>
 </template>
 
 <script>
-    import CreateChallengeDialog from './CreateChallengeDialog'
+    import CreateChallengeDialogContent from './CreateChallengeDialogContent'
 
     export default {
         name: 'CreateChallengeButton',
         components: {
-            CreateChallengeDialog
+            CreateChallengeDialogContent
         },
         props: ['connection'],
         data () {

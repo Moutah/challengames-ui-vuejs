@@ -8,14 +8,12 @@
             <v-toolbar-title class="headline">
                 <span>Challengames</span>
             </v-toolbar-title>
-
-            <v-spacer></v-spacer>
-
-            <LoginLogoutButtons :connection="connection"/>
         </v-toolbar>
 
         <NavigationDrawer
             @pageChange="pageChange"
+            @login="login"
+            @logoff="logoff"
             :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
 
         <v-content>
@@ -30,14 +28,12 @@
 <script>
     import MainPage from './components/MainPage'
     import NavigationDrawer from "./components/NavigationDrawer"
-    import LoginLogoutButtons from './components/LoginLogoutButtons'
 
     export default {
         name: 'App',
         components: {
             MainPage,
-            NavigationDrawer,
-            LoginLogoutButtons
+            NavigationDrawer
         },
         data: function() {
             return {
@@ -56,6 +52,14 @@
             pageChange : function(e) {
                 this.pageContent = e;
                 this.drawer = false;
+            },
+            login : function(username) {
+                this.connection.username = username;
+                this.connection.isConnected = true;
+            },
+            logoff : function() {
+                this.connection.username = null
+                this.connection.isConnected = false
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
-    <v-dialog v-model="dialog" width="500">
+    <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
-            <v-btn v-on="on" small color="primary">
+            <v-btn small color="green darken-1" v-on="on">
                 <v-icon>search</v-icon>
             </v-btn>
         </template>
