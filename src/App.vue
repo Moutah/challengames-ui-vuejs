@@ -8,6 +8,21 @@
             <v-toolbar-title class="headline">
                 <span>Challengames</span>
             </v-toolbar-title>
+
+            <v-spacer></v-spacer>
+
+            <v-toolbar-items class="hidden-sm-and-down">
+                <v-btn flat small @click="changeLocale('en')">
+                    <div style="font-size:25px">
+                        <flag iso="gb"/>
+                    </div>
+                </v-btn>
+                <v-btn flat small @click="changeLocale('fr')">
+                    <div style="font-size:25px">
+                        <flag iso="fr"/>
+                    </div>
+                </v-btn>
+            </v-toolbar-items>
         </v-toolbar>
 
         <NavigationDrawer
@@ -18,21 +33,26 @@
 
         <v-content>
             <MainPage v-if="pageContent == 'mainpage'" :connection="connection"/>
-            <div v-else>
-                under construction
-            </div>
+            <MyChallengesPage v-if="pageContent == 'mychallenges'"/>
+            <RankingPage v-if="pageContent == 'ranking'"/>
         </v-content>
     </v-app>
 </template>
 
 <script>
-    import MainPage from './components/MainPage'
     import NavigationDrawer from "./components/NavigationDrawer"
+    import MainPage from './components/MainPage'
+    import MyChallengesPage from "./components/MyChallengesPage"
+    import RankingPage from "./components/RankingPage"
+
+    import $i18n from '@/plugins/i18n'
 
     export default {
         name: 'App',
         components: {
             MainPage,
+            MyChallengesPage,
+            RankingPage,
             NavigationDrawer
         },
         data: function() {
@@ -60,7 +80,11 @@
             logoff : function() {
                 this.connection.username = null
                 this.connection.isConnected = false
+            },
+            changeLocale : function(locale) {
+                $i18n.locale = locale;
             }
+
         }
     }
 </script>

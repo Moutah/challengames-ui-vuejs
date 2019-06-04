@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-card-title class="headline green darken-3" primary-title>New challenge</v-card-title>
+        <v-card-title class="headline green darken-3" primary-title>{{ $t('newChallengePopupTitle') }}</v-card-title>
 
         <v-card-text>
             <v-container grid-list-md>

@@ -2,7 +2,7 @@
     <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
             <v-btn v-on="on" :disabled="!connection.isConnected" color="primary">
-                Add a new challenge <v-icon>add_box</v-icon>
+                {{ $t('addNewChallengeLabel') }} <v-icon>add_box</v-icon>
             </v-btn>
         </template>
         <CreateChallengeDialogContent @closeCreateChallengeDialog="dialog=false" :connection="connection" :dialog="dialog" />

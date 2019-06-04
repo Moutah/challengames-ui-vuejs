@@ -2,16 +2,15 @@
     <v-navigation-drawer
       v-model="drawer"
       absolute
-      temporary
     >
         <br/>
         <div class="text-xs-center">
-            <v-icon x-large>face</v-icon>
+            <v-icon x-large color="green darken-1">face</v-icon>
         </div>
         <template v-if="connection.isConnected">
             <br/>
             <div class="text-xs-center">
-                Connected as <b>{{connection.username}}  </b><v-icon @click="logoff">exit_to_app</v-icon>
+                <h2>{{ $t('connectedAs') }} <b class="green--text darken-1--text">{{connection.username}}  </b><v-icon @click="logoff">exit_to_app</v-icon></h2>
             </div>
             <br/>
         </template>
@@ -67,7 +66,7 @@
                     <v-icon>home</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>Home</v-list-tile-title>
+                    <v-list-tile-title>{{ $t('homeLabel') }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
 
@@ -85,7 +84,7 @@
                                 width="500">
                                 <template v-slot:activator="{ on }">
                                     <button v-on="on">
-                                        Add a new challenge
+                                        {{ $t('addNewChallengeLabel') }}
                                     </button>
                                 </template>
                                 <CreateChallengeDialogContent @closeCreateChallengeDialog="dialogCreateChallenge = false" :connection="connection" :dialog="dialog" />
@@ -104,24 +103,23 @@
                     </v-list-tile-action>
                     <v-list-tile-content>
                         <v-list-tile-title>
-                            My challenges
-                        </v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-
-                <v-divider></v-divider>
-
-                <v-list-tile @click="toRanking">
-                    <v-list-tile-action>
-                        <v-icon>group</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>
-                            Ranking
+                            {{ $t('myChallengesLabel') }}
                         </v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </template>
+            <v-divider></v-divider>
+
+            <v-list-tile @click="toRanking">
+                <v-list-tile-action>
+                    <v-icon>group</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>
+                        {{ $t('rankingLabel') }}
+                    </v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -162,6 +160,7 @@
                 // Need to wait a bit
                 this.loginLoading = false;
                 this.$emit('login', this.loginUsername);
+                this.loginUsername = null;
             }
         }
     }
