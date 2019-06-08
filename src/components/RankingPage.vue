@@ -1,6 +1,6 @@
 <template>
     <div>
-        Under construction
+        Ranking: Under construction
     </div>
 </template>
 

@@ -61,14 +61,16 @@
         <v-list>
             <v-divider></v-divider>
 
-            <v-list-tile @click="toMainPage">
-                <v-list-tile-action>
-                    <v-icon>home</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title>{{ $t('homeLabel') }}</v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
+            <router-link to='/'>
+                <v-list-tile>
+                    <v-list-tile-action>
+                        <v-icon>home</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>{{ $t('homeLabel') }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </router-link>
 
             <template v-if="connection.isConnected">
                 <v-divider></v-divider>
@@ -93,33 +95,37 @@
                     </v-list-tile-content>
                 </v-list-tile>
 
-                <v-list-tile @click="toMyChallenges">
-                    <v-list-tile-action>
-                        <v-badge>
-                            <template v-slot:badge>
-                                <span>{{nbChallenges}}</span>
-                            </template>
-                        </v-badge>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>
-                            {{ $t('myChallengesLabel') }}
-                        </v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
+                <router-link to="/myChallenges">
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-badge>
+                                <template v-slot:badge>
+                                    <span>{{nbChallenges}}</span>
+                                </template>
+                            </v-badge>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>
+                                {{ $t('myChallengesLabel') }}
+                            </v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </router-link>
             </template>
             <v-divider></v-divider>
 
-            <v-list-tile @click="toRanking">
-                <v-list-tile-action>
-                    <v-icon>group</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                    <v-list-tile-title>
-                        {{ $t('rankingLabel') }}
-                    </v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
+            <router-link to="/ranking">
+                <v-list-tile>
+                    <v-list-tile-action>
+                        <v-icon>group</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title>
+                            {{ $t('rankingLabel') }}
+                        </v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </router-link>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -143,12 +149,6 @@
             }
         },
         methods: {
-            toMainPage: function() {
-                this.$emit('pageChange', 'mainpage');
-            },
-            toMyChallenges: function() {
-                this.$emit('pageChange', 'mychallenges')
-            },
             toRanking: function() {
                 this.$emit('pageChange', 'ranking');
             },

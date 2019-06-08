@@ -1,6 +1,6 @@
 <template>
     <div>
-        Under construction
+        MyChallenges: Under construction
     </div>
 </template>
 

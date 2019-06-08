@@ -32,27 +32,19 @@
             :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
 
         <v-content>
-            <MainPage v-if="pageContent == 'mainpage'" :connection="connection"/>
-            <MyChallengesPage v-if="pageContent == 'mychallenges'"/>
-            <RankingPage v-if="pageContent == 'ranking'"/>
+            <router-view :connection="connection"></router-view>
         </v-content>
     </v-app>
 </template>
 
 <script>
     import NavigationDrawer from "./components/NavigationDrawer"
-    import MainPage from './components/MainPage'
-    import MyChallengesPage from "./components/MyChallengesPage"
-    import RankingPage from "./components/RankingPage"
 
     import $i18n from '@/plugins/i18n'
 
     export default {
         name: 'App',
         components: {
-            MainPage,
-            MyChallengesPage,
-            RankingPage,
             NavigationDrawer
         },
         data: function() {
