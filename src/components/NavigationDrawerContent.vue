@@ -58,16 +58,16 @@
         <v-list>
             <v-divider></v-divider>
 
-            <router-link to='/'>
-                <v-list-tile>
-                    <v-list-tile-action>
-                        <v-icon>home</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
+            <v-list-tile>
+                <v-list-tile-action>
+                    <v-icon>home</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <router-link to='/'>
                         <v-list-tile-title>{{ $t('homeLabel') }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </router-link>
+                    </router-link>
+                </v-list-tile-content>
+            </v-list-tile>
 
             <template v-if="connection.isConnected">
                 <v-divider></v-divider>
@@ -168,6 +168,9 @@
     }
 </script>
 
-<style>
-
+<style scoped>
+    a {
+        color: white!important;
+        text-decoration: none;
+    }
 </style>
