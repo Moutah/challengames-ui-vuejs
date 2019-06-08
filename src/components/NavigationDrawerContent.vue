@@ -158,12 +158,6 @@
                 this.$emit('login', this.loginUsername);
                 this.loginUsername = null;
             }
-        },
-        watch: {
-            selfState: function() {
-                alert('aaa');
-                this.$emit("drawer")
-            }
         }
     }
 </script>

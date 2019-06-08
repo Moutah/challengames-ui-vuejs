@@ -30,7 +30,6 @@
           absolute
         >
             <NavigationDrawerContent
-                @drawer="drawerFct"
                 @login="login"
                 @logoff="logoff"
                 :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
