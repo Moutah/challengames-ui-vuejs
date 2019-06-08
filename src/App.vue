@@ -25,11 +25,16 @@
             </v-toolbar-items>
         </v-toolbar>
 
-        <NavigationDrawer
-            @pageChange="pageChange"
-            @login="login"
-            @logoff="logoff"
-            :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
+        <v-navigation-drawer
+          v-model="drawer"
+          absolute
+        >
+            <NavigationDrawerContent
+                @drawer="drawerFct"
+                @login="login"
+                @logoff="logoff"
+                :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
+        </v-navigation-drawer>
 
         <v-content>
             <router-view :connection="connection"></router-view>
@@ -38,18 +43,17 @@
 </template>
 
 <script>
-    import NavigationDrawer from "./components/NavigationDrawer"
+    import NavigationDrawerContent from "./components/NavigationDrawerContent"
 
     import $i18n from '@/plugins/i18n'
 
     export default {
         name: 'App',
         components: {
-            NavigationDrawer
+            NavigationDrawerContent
         },
         data: function() {
             return {
-                pageContent: "mainpage",
                 drawer: false,
                 connection: {
                     username: "Hellorin",
@@ -61,8 +65,7 @@
             }
         },
         methods: {
-            pageChange : function(e) {
-                this.pageContent = e;
+            drawerFct: function() {
                 this.drawer = false;
             },
             login : function(username) {

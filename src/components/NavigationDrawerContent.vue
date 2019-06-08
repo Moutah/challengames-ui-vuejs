@@ -1,8 +1,5 @@
 <template>
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-    >
+    <div>
         <br/>
         <div class="text-xs-center">
             <v-icon x-large color="green darken-1">face</v-icon>
@@ -112,29 +109,31 @@
                     </v-list-tile>
                 </router-link>
             </template>
+
             <v-divider></v-divider>
 
-            <router-link to="/ranking">
-                <v-list-tile>
-                    <v-list-tile-action>
-                        <v-icon>group</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>
+            <v-list-tile>
+                <v-list-tile-action>
+                    <v-icon>group</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>
+                        <router-link to="/ranking">
                             {{ $t('rankingLabel') }}
-                        </v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </router-link>
+                        </router-link>
+                    </v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+
         </v-list>
-    </v-navigation-drawer>
+    </div>
 </template>
 
 <script>
     import CreateChallengeDialogContent from './CreateChallengeDialogContent'
 
     export default {
-        name: "NavigationDrawer",
+        name: "NavigationDrawerContent",
         components: {
             CreateChallengeDialogContent
         },
@@ -149,9 +148,6 @@
             }
         },
         methods: {
-            toRanking: function() {
-                this.$emit('pageChange', 'ranking');
-            },
             logoff: function() {
                 this.$emit('logoff');
             },
@@ -161,6 +157,12 @@
                 this.loginLoading = false;
                 this.$emit('login', this.loginUsername);
                 this.loginUsername = null;
+            }
+        },
+        watch: {
+            selfState: function() {
+                alert('aaa');
+                this.$emit("drawer")
             }
         }
     }
