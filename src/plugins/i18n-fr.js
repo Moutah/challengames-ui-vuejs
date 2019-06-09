@@ -4,6 +4,7 @@ const i18nFr ={
     createChallengeMainPageTitle: "Et maintenant?",
 
     mostRecentChallengesTitle: "Challenges les plus récents",
+    challengersRankingTitle: "Classement des Challengers",
     cannotCreateChallengeLabel: "Malheureusement il est nécessaire d'être connecté pour créer un challenge...",
     cannotCreateChallengeButLoginLabel: "Par contre, vous pouvez vous connecter en haut à gauche (dans la barre de navigation) ! Faites le vite !",
 
@@ -12,6 +13,13 @@ const i18nFr ={
     newChallengePopupTitle: 'Nouveau challenge',
 
     connectedAs: 'Connecté en tant que',
+
+    challengeNameTitleGrid: 'Nom du challenge',
+    submitterTitleGrid: 'Challenger',
+    challengeeTitleGrid: 'Cible du challenge',
+
+    rankTitleGrid: 'Rang',
+    nameTitleGrid: "Nom du challenger",
 
     homeLabel: "Accueil",
     addNewChallengeLabel: "Ajouter un nouvel challenge",

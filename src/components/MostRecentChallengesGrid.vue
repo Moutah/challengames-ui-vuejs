@@ -1,5 +1,5 @@
 <template>
-    <v-data-table :headers="headers" :items="challenges" class="elevation-1">
+    <v-data-table :headers="headersFct" :items="challenges" class="elevation-1">
         <template v-slot:items="props">
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.date }}</td>
@@ -23,18 +23,6 @@
         },
         data () {
             return {
-                headers: [
-                    {
-                        text: 'Challenge names',
-                        align: 'left',
-                        sortable: false,
-                        value: 'name'
-                    },
-                    { text: 'Date', value: 'date' },
-                    { text: 'Submitter', value: 'submitter' },
-                    { text: 'Challengee', value: 'challengee' },
-                    { text: 'Status', value: 'status' },
-                ],
                 challenges: [
                     {
                         name: 'Challenge 4000',
@@ -52,6 +40,22 @@
                         challengee: "Hellorin",
                         status: 'OPEN'
                     }
+                ]
+            }
+        },
+        computed: {
+            headersFct: function() {
+                return [
+                    {
+                        text: this.$i18n.t('challengeNameTitleGrid'),
+                        align: 'left',
+                        sortable: false,
+                        value: 'name'
+                    },
+                    { text: 'Date', value: 'date' },
+                    { text: this.$i18n.t('submitterTitleGrid'), value: 'submitter' },
+                    { text: this.$i18n.t('challengeeTitleGrid'), value: 'challengee' },
+                    { text: 'Status', value: 'status' },
                 ]
             }
         }

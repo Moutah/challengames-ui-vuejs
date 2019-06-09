@@ -3,6 +3,7 @@ const i18nEn = {
     createChallengeForAStart: "The best way to start is to create a challenge, don't you think?",
     createChallengeMainPageTitle: "What's next?",
     mostRecentChallengesTitle: "Most recent challenges",
+    challengersRankingTitle: "Challengers ranking",
     cannotCreateChallengeLabel: "Unfortunately, you need to be connected to create a challenge...",
     cannotCreateChallengeButLoginLabel: "However, you can login on the top left handside of this page (in the navigation bar) ! Do it quick !",
 
@@ -11,6 +12,13 @@ const i18nEn = {
     newChallengePopupTitle: 'New challenge',
 
     connectedAs: 'Connected as',
+
+    challengeNameTitleGrid: 'Challenge name',
+    submitterTitleGrid: 'Challenger',
+    challengeeTitleGrid: 'Challenge taker',
+
+    rankTitleGrid: 'Rank',
+    nameTitleGrid: "Challenger's name",
 
     homeLabel: 'Home',
     addNewChallengeLabel: "Add a new challenge",
