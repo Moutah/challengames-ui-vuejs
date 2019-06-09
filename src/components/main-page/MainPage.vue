@@ -37,7 +37,7 @@
 
             <v-flex xs12>
                 <h2>{{ $t('mostRecentChallengesTitle') }}</h2>
-                <MostRecentChallengesGrid />
+                <MostRecentChallengesGrid :connection="connection" />
             </v-flex>
 
             <v-flex xs1></v-flex>

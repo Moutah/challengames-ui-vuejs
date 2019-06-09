@@ -7,6 +7,7 @@ const i18nFr ={
     challengersRankingTitle: "Classement des Challengers",
     cannotCreateChallengeLabel: "Malheureusement il est nécessaire d'être connecté pour créer un challenge...",
     cannotCreateChallengeButLoginLabel: "Par contre, vous pouvez vous connecter en haut à gauche (dans la barre de navigation) ! Faites le vite !",
+    changeStatusToTitle: 'Changer le statuts à',
 
     challengeNameTitle: "Nom des challenges",
 

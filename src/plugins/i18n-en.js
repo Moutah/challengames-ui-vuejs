@@ -6,6 +6,7 @@ const i18nEn = {
     challengersRankingTitle: "Challengers ranking",
     cannotCreateChallengeLabel: "Unfortunately, you need to be connected to create a challenge...",
     cannotCreateChallengeButLoginLabel: "However, you can login on the top left handside of this page (in the navigation bar) ! Do it quick !",
+    changeStatusToTitle: 'Change status to',
 
     challengeNameTitle: 'Challenge names',
 

@@ -7,7 +7,9 @@
             <td class="text-xs-right">{{ props.item.challengee }}</td>
             <td class="text-xs-right">{{ props.item.status }}</td>
             <td class="text-xs-right">
-                <ChallengeDetailsPopup :challenge="props.item"/>
+                <ChallengeDetailsPopup
+                    :connection="connection"
+                    :challenge="props.item"/>
             </td>
         </template>
     </v-data-table>
@@ -21,6 +23,7 @@
         components: {
             ChallengeDetailsPopup,
         },
+        props: ['connection'],
         data () {
             return {
                 challenges: [
@@ -38,6 +41,14 @@
                         date: '01/10/2020',
                         submitter: 'Mathieu',
                         challengee: "Hellorin",
+                        status: 'OPEN'
+                    },
+                    {
+                        name: 'Challenge 4002',
+                        description: 'Do it again and again!',
+                        date: '01/10/2020',
+                        submitter: 'Mathieu',
+                        challengee: "Nuno",
                         status: 'OPEN'
                     }
                 ]
