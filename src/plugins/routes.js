@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router'
 
 import MainPage from '../components/main-page/MainPage'
-import MyChallengesPage from "../components/MyChallengesPage"
-import RankingPage from "../components/RankingPage"
+import MyChallengesPage from "../components/challenges/MyChallengesPage"
+import RankingPage from "../components/ranking/RankingPage"
 
 const router = new VueRouter({
     routes: [
