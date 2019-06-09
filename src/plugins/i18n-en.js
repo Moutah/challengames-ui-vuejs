@@ -19,6 +19,11 @@ const i18nEn = {
 
     rankTitleGrid: 'Rank',
     nameTitleGrid: "Challenger's name",
+    nbPointsTitleGrid: "Number of points",
+
+    rankingParagraph1: 'The following grid ranks best players on this website.',
+    rankingParagraph2: 'The best way to rank-up is to accept new challenges from your friends.',
+    rankingParagraph3: 'What are you waiting for?',
 
     homeLabel: 'Home',
     addNewChallengeLabel: "Add a new challenge",

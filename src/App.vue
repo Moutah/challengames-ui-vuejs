@@ -12,16 +12,13 @@
             <v-spacer></v-spacer>
 
             <v-toolbar-items class="hidden-sm-and-down">
-                <v-btn flat small @click="changeLocale('en')">
-                    <div style="font-size:25px">
-                        <flag iso="gb"/>
-                    </div>
-                </v-btn>
-                <v-btn flat small @click="changeLocale('fr')">
-                    <div style="font-size:25px">
-                        <flag iso="fr"/>
-                    </div>
-                </v-btn>
+                <v-select
+                    :items="['fr', 'en']"
+                    value="en"
+                    width="50px"
+                    v-model="$i18n.locale"
+                ></v-select>
+
             </v-toolbar-items>
         </v-toolbar>
 

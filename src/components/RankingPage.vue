@@ -6,7 +6,9 @@
 
             <v-flex xs12>
                 <h2>{{ $t('mostRecentChallengesTitle') }}</h2>
-
+                <p>{{ $t('rankingParagraph1') }}</p>
+                <p>{{ $t('rankingParagraph2') }}</p>
+                <p>{{ $t('rankingParagraph3') }}</p>
                 <RankingGrid />
             </v-flex>
         </v-layout>

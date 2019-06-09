@@ -20,6 +20,11 @@ const i18nFr ={
 
     rankTitleGrid: 'Rang',
     nameTitleGrid: "Nom du challenger",
+    nbPointsTitleGrid: "Nombre de points",
+
+    rankingParagraph1: 'La liste suivante classe les meilleurs joueurs de ce site.',
+    rankingParagraph2: 'Le meilleur moyen de monter en rang est de jouer plus.',
+    rankingParagraph3: "Qu'attends tu?",
 
     homeLabel: "Accueil",
     addNewChallengeLabel: "Ajouter un nouvel challenge",

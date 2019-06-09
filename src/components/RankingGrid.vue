@@ -3,6 +3,7 @@
         <template v-slot:items="props">
             <td>{{ props.item.rank }}</td>
             <td class="text-xs-right">{{ props.item.name }}</td>
+            <td class="text-xs-right">{{ props.item.nbPoints }}</td>
         </template>
     </v-data-table>
 </template>
@@ -16,10 +17,12 @@
                     {
                         rank: '1',
                         name: 'David',
+                        nbPoints: 4000
                     },
                     {
                         rank: '2',
-                        name: 'Mathieu'
+                        name: 'Mathieu',
+                        nbPoints: 100
                     }
                 ]
             }
@@ -30,9 +33,10 @@
                     {
                         text: this.$i18n.t('rankTitleGrid'),
                         align: 'left',
-                        value: 'name'
+                        value: 'rank'
                     },
-                    { text: this.$i18n.t('nameTitleGrid'), value: 'name' }
+                    { text: this.$i18n.t('nameTitleGrid'), value: 'name' },
+                    { text: this.$i18n.t('nbPointsTitleGrid'), value: 'name' }
                 ]
             }
         }
