@@ -130,7 +130,7 @@
 </template>
 
 <script>
-    import CreateChallengeDialogContent from './CreateChallengeDialogContent'
+    import CreateChallengeDialogContent from './core/CreateChallengeDialogContent'
 
     export default {
         name: "NavigationDrawerContent",

@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 
-import MainPage from '../components/MainPage'
+import MainPage from '../components/main-page/MainPage'
 import MyChallengesPage from "../components/MyChallengesPage"
 import RankingPage from "../components/RankingPage"
 

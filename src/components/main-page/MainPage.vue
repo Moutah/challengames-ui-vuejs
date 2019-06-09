@@ -46,7 +46,7 @@
 </template>
 
 <script>
-    import CreateChallengeButton from './CreateChallengeButton'
+    import CreateChallengeButton from '../core/CreateChallengeButton'
     import MostRecentChallengesGrid from './MostRecentChallengesGrid'
 
     export default {
