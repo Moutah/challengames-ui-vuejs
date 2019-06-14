@@ -8,6 +8,7 @@
             <td class="text-xs-right">{{ props.item.status }}</td>
             <td class="text-xs-right">
                 <ChallengeDetailsPopup
+                    @changeStatus="changeChallengeStatus"
                     :connection="connection"
                     :challenge="props.item"/>
             </td>
@@ -52,6 +53,18 @@
                         status: 'OPEN'
                     }
                 ]
+            }
+        },
+        methods: {
+            changeChallengeStatus: function(data) {
+                var challengeName = data.challenge.name;
+
+                for (var index in this.challenges) {
+                    if (this.challenges[index].name == challengeName) {
+                        this.challenges[index].status = data.targetStatus;
+                        break;
+                    }
+                }
             }
         },
         computed: {

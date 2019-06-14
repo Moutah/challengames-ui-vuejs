@@ -146,8 +146,12 @@
                 }
             },
             changeChallengeStatus: function(targetStatus) {
-                alert("Changing to " + targetStatus);
-                this.$emit('changeStatus', targetStatus);
+                this.$emit('changeStatus',
+                    {
+                        'challenge':this.challenge,
+                        'targetStatus':targetStatus
+                    }
+                );
             }
 
         },
