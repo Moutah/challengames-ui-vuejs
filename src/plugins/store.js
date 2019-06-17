@@ -10,30 +10,6 @@ export const store = new Vuex.Store({
             isConnected: true
         },
         mostRecentChallenges: [
-            {
-                name: 'Challenge 4000',
-                description: 'Do it !',
-                date: '01/10/2020',
-                submitter: 'Mathieu',
-                challengee: "Hellorin",
-                status: 'OPEN'
-            },
-            {
-                name: 'Challenge 4001',
-                description: 'Do it again!',
-                date: '01/10/2020',
-                submitter: 'Mathieu',
-                challengee: "Hellorin",
-                status: 'OPEN'
-            },
-            {
-                name: 'Challenge 4002',
-                description: 'Do it again and again!',
-                date: '01/10/2020',
-                submitter: 'Mathieu',
-                challengee: "Nuno",
-                status: 'OPEN'
-            }
         ],
         myChallenges: [
             "a"
@@ -53,6 +29,34 @@ export const store = new Vuex.Store({
             if (data.challengee == state.connection.username) {
                 state.myChallenges.push(data);
             }
+        },
+        loadMostRecentChallenges(state) {
+            state.mostRecentChallenges = [
+                {
+                    name: 'Challenge 4000',
+                    description: 'Do it !',
+                    date: '01/10/2020',
+                    submitter: 'Mathieu',
+                    challengee: "Hellorin",
+                    status: 'OPEN'
+                },
+                {
+                    name: 'Challenge 4001',
+                    description: 'Do it again!',
+                    date: '01/10/2020',
+                    submitter: 'Mathieu',
+                    challengee: "Hellorin",
+                    status: 'OPEN'
+                },
+                {
+                    name: 'Challenge 4002',
+                    description: 'Do it again and again!',
+                    date: '01/10/2020',
+                    submitter: 'Mathieu',
+                    challengee: "Nuno",
+                    status: 'OPEN'
+                }
+            ]
         }
     },
     getters: {

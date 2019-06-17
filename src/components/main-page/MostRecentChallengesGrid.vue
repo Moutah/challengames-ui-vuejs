@@ -46,6 +46,9 @@
                 this.challenges.push(mappedData);
             }
         },
+        beforeMount() {
+            this.$store.commit('loadMostRecentChallenges')
+        },
         computed: {
             headersFct: function() {
                 return [
