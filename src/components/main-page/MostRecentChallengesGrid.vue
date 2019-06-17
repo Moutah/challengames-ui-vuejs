@@ -65,6 +65,16 @@
                         break;
                     }
                 }
+            },
+            createChallenge: function(data) {
+                var mappedData = {
+                    name: data.challengeName,
+                    description: data.description,
+                    submitter: this.connection.username,
+                    challengee: data.challengee,
+                    status: 'OPEN'
+                }
+                this.challenges.push(mappedData);
             }
         },
         computed: {

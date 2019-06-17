@@ -6,7 +6,7 @@
             <v-container grid-list-md>
                 <v-layout wrap>
                     <v-flex xs12>
-                        <v-text-field label="Challenge name*" required hint="Example: My challenge 4000"></v-text-field>
+                        <v-text-field v-model="challengeName" label="Challenge name*" required hint="Example: My challenge 4000"></v-text-field>
                     </v-flex>
                     <v-flex xs12>
                         <v-textarea
@@ -15,13 +15,14 @@
                           label="Description"
                           value=""
                           hint="Gather all 120 stars in Mario 64"
+                          v-model="description"
                         ></v-textarea>
                     </v-flex>
                     <v-flex xs6>
                         <v-text-field label="Challenger" readonly v-bind:value="connection.username"></v-text-field>
                     </v-flex>
                     <v-flex xs6>
-                        <v-text-field label="Challengee" required></v-text-field>
+                        <v-text-field label="Challengee" required v-model="challengee"></v-text-field>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -31,8 +32,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-            <v-btn color="primary" flat @click="dialog = false">
-                Create
+            <v-btn color="primary" flat @click="createChallenge">
+                <v-icon>add_box</v-icon>Create
             </v-btn>
             <v-btn color="primary" flat @click="closeDialog">
                 <v-icon>clear</v-icon> Cancel
@@ -45,9 +46,25 @@
     export default {
         name: 'CreateChallengeDialogContent',
         props: ['dialog', 'connection'],
+        data () {
+            return {
+                challengeName: "",
+                description: "",
+                challengee: ""
+            }
+        },
         methods: {
+            createChallenge: function() {
+                var data = {
+                    'challengeName': this.challengeName,
+                    'description': this.description,
+                    'challengee': this.challengee
+                };
+                this.$emit("createChallenge", data);
+                this.closeDialog();
+            },
             closeDialog: function() {
-                this.$emit("closeCreateChallengeDialog")
+                this.$emit("closeCreateChallengeDialog");
             }
         }
     }

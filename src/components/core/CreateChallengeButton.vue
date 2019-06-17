@@ -5,7 +5,11 @@
                 {{ $t('addNewChallengeLabel') }} <v-icon>add_box</v-icon>
             </v-btn>
         </template>
-        <CreateChallengeDialogContent @closeCreateChallengeDialog="dialog=false" :connection="connection" :dialog="dialog" />
+        <CreateChallengeDialogContent
+            @closeCreateChallengeDialog="dialog=false"
+            @createChallenge="createChallenge"
+            :connection="connection"
+            :dialog="dialog" />
     </v-dialog>
 </template>
 
@@ -21,6 +25,11 @@
         data () {
             return {
                 dialog: false
+            }
+        },
+        methods: {
+            createChallenge: function(data) {
+                this.$emit('createChallenge', data);
             }
         }
     }
