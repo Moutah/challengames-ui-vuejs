@@ -12,7 +12,6 @@ export const store = new Vuex.Store({
         mostRecentChallenges: [
         ],
         myChallenges: [
-            "a"
         ]
     },
     mutations: {
@@ -56,6 +55,11 @@ export const store = new Vuex.Store({
                     challengee: "Nuno",
                     status: 'OPEN'
                 }
+            ]
+        },
+        loadMyChallenges(state) {
+            state.myChallenges = [
+                "a"
             ]
         }
     },
