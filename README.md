@@ -7,7 +7,7 @@ UI exploiting an API that has been designed in order to give the possibility to 
 - Javascript
 - VueJS (2.6.x)
 - Vuetify (1.5.x)
-- Vue-flag-icon (1.0.x),
+- VueX (3.1.x)
 - HTML
 - CSS
 
