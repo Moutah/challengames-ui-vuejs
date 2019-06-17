@@ -168,6 +168,9 @@
                 this.$store.commit('createChallenge', mappedData)
                 this.$emit('createChallenge')
             }
+        },
+        beforeMount() {
+            this.$store.commit('loadMyChallenges')
         }
     }
 </script>
