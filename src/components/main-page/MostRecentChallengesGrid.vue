@@ -9,7 +9,6 @@
             <td class="text-xs-right">
                 <ChallengeDetailsPopup
                     @changeStatus="changeChallengeStatus"
-                    :connection="connection"
                     :challenge="props.item"/>
             </td>
         </template>
@@ -24,7 +23,7 @@
         components: {
             ChallengeDetailsPopup,
         },
-        props: ['connection'],
+        props: [],
         data () {
             return {
                 challenges: [
@@ -70,7 +69,7 @@
                 var mappedData = {
                     name: data.challengeName,
                     description: data.description,
-                    submitter: this.connection.username,
+                    submitter: $store.getters.username,
                     challengee: data.challengee,
                     status: 'OPEN'
                 }

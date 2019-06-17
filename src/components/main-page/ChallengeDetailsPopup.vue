@@ -113,7 +113,7 @@
     export default {
         name: 'ChallengeDetailsPopup',
         components: { },
-        props: ['challenge', 'connection'],
+        props: ['challenge'],
         data () {
             return {
                 dialog: false
@@ -157,11 +157,10 @@
         },
         computed: {
             isChallengee: function() {
-                return this.challenge.challengee==this.connection.username;
-
+                return this.challenge.challengee==this.$store.getters.username;
             },
             isChallenger: function() {
-                return this.challenge.submitter==this.connection.username;
+                return this.challenge.submitter==this.$store.getters.username;
             },
         }
     }

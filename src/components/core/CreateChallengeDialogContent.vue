@@ -19,7 +19,7 @@
                         ></v-textarea>
                     </v-flex>
                     <v-flex xs6>
-                        <v-text-field label="Challenger" readonly v-bind:value="connection.username"></v-text-field>
+                        <v-text-field label="Challenger" readonly v-bind:value="$store.getters.username"></v-text-field>
                     </v-flex>
                     <v-flex xs6>
                         <v-text-field label="Challengee" required v-model="challengee"></v-text-field>
@@ -45,7 +45,7 @@
 <script>
     export default {
         name: 'CreateChallengeDialogContent',
-        props: ['dialog', 'connection'],
+        props: ['dialog'],
         data () {
             return {
                 challengeName: "",

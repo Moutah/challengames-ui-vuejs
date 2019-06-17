@@ -28,13 +28,11 @@
           temporary
         >
             <NavigationDrawerContent
-                @login="login"
-                @logoff="logoff"
-                :nbChallenges="myChallenges.length" :drawer="drawer" :connection="connection"/>
+                :nbChallenges="myChallenges.length" :drawer="drawer"/>
         </v-navigation-drawer>
 
         <v-content>
-            <router-view :connection="connection"></router-view>
+            <router-view></router-view>
         </v-content>
     </v-app>
 </template>
@@ -52,10 +50,6 @@
         data: function() {
             return {
                 drawer: false,
-                connection: {
-                    username: "Hellorin",
-                    isConnected: true
-                },
                 myChallenges: [
                     "a"
                 ]
@@ -64,14 +58,6 @@
         methods: {
             drawerFct: function() {
                 this.drawer = false;
-            },
-            login : function(username) {
-                this.connection.username = username;
-                this.connection.isConnected = true;
-            },
-            logoff : function() {
-                this.connection.username = null
-                this.connection.isConnected = false
             },
             changeLocale : function(locale) {
                 $i18n.locale = locale;

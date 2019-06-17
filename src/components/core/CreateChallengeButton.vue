@@ -1,14 +1,13 @@
 <template>
     <v-dialog v-model="dialog">
         <template v-slot:activator="{ on }">
-            <v-btn v-on="on" :disabled="!connection.isConnected" color="primary">
+            <v-btn v-on="on" :disabled="!$store.getters.isConnected" color="primary">
                 {{ $t('addNewChallengeLabel') }} <v-icon>add_box</v-icon>
             </v-btn>
         </template>
         <CreateChallengeDialogContent
             @closeCreateChallengeDialog="dialog=false"
             @createChallenge="createChallenge"
-            :connection="connection"
             :dialog="dialog" />
     </v-dialog>
 </template>
@@ -21,7 +20,7 @@
         components: {
             CreateChallengeDialogContent
         },
-        props: ['connection'],
+        props: [],
         data () {
             return {
                 dialog: false

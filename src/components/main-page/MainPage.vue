@@ -21,7 +21,7 @@
 
                 <br/>
 
-                <v-text v-if="!connection.isConnected">
+                <v-text v-if="!$store.getters.isConnected">
                     <v-icon>
                         sentiment_very_dissatisfied
                     </v-icon> {{ $t('cannotCreateChallengeLabel') }}
@@ -39,7 +39,7 @@
 
             <v-flex xs12>
                 <h2>{{ $t('mostRecentChallengesTitle') }}</h2>
-                <MostRecentChallengesGrid ref="mostRecentChallengesGrid" :connection="connection" />
+                <MostRecentChallengesGrid ref="mostRecentChallengesGrid" />
             </v-flex>
 
             <v-flex xs1></v-flex>
@@ -57,7 +57,7 @@
             CreateChallengeButton,
             MostRecentChallengesGrid
         },
-        props: ['connection'],
+        props: [],
         data () {
             return {
             }

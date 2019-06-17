@@ -4,10 +4,10 @@
         <div class="text-xs-center">
             <v-icon x-large color="green darken-1">face</v-icon>
         </div>
-        <template v-if="connection.isConnected">
+        <template v-if="$store.getters.isConnected">
             <br/>
             <div class="text-xs-center">
-                <h2>{{ $t('connectedAs') }} <b class="green--text darken-1--text">{{connection.username}}  </b><v-icon @click="logoff">exit_to_app</v-icon></h2>
+                <h2>{{ $t('connectedAs') }} <b class="green--text darken-1--text">{{ $store.getters.username }}  </b><v-icon @click="logoff">exit_to_app</v-icon></h2>
             </div>
             <br/>
         </template>
@@ -69,7 +69,7 @@
                 </v-list-tile-content>
             </v-list-tile>
 
-            <template v-if="connection.isConnected">
+            <template v-if="$store.getters.isConnected">
                 <v-divider></v-divider>
 
                 <v-list-tile two-line>
@@ -137,7 +137,7 @@
         components: {
             CreateChallengeDialogContent
         },
-        props: ['connection', 'drawer', 'nbChallenges'],
+        props: ['drawer', 'nbChallenges'],
         data () {
             return {
                 dialog: false,
@@ -149,13 +149,10 @@
         },
         methods: {
             logoff: function() {
-                this.$emit('logoff');
+                this.$store.commit('logoff', this.loginUsername);
             },
             login: function() {
-                this.loginLoading = true;
-                // Need to wait a bit
-                this.loginLoading = false;
-                this.$emit('login', this.loginUsername);
+                this.$store.commit('login', this.loginUsername);
                 this.loginUsername = null;
             }
         }
