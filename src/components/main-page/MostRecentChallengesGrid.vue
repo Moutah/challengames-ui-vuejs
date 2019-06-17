@@ -1,5 +1,5 @@
 <template>
-    <v-data-table :headers="headersFct" :items="challenges" class="elevation-1">
+    <v-data-table :headers="headersFct" :items="$store.getters.mostRecentChallenges" class="elevation-1">
         <template v-slot:items="props">
             <td>{{ props.item.name }}</td>
             <td class="text-xs-right">{{ props.item.date }}</td>
@@ -23,37 +23,6 @@
         components: {
             ChallengeDetailsPopup,
         },
-        props: [],
-        data () {
-            return {
-                challenges: [
-                    {
-                        name: 'Challenge 4000',
-                        description: 'Do it !',
-                        date: '01/10/2020',
-                        submitter: 'Mathieu',
-                        challengee: "Hellorin",
-                        status: 'OPEN'
-                    },
-                    {
-                        name: 'Challenge 4001',
-                        description: 'Do it again!',
-                        date: '01/10/2020',
-                        submitter: 'Mathieu',
-                        challengee: "Hellorin",
-                        status: 'OPEN'
-                    },
-                    {
-                        name: 'Challenge 4002',
-                        description: 'Do it again and again!',
-                        date: '01/10/2020',
-                        submitter: 'Mathieu',
-                        challengee: "Nuno",
-                        status: 'OPEN'
-                    }
-                ]
-            }
-        },
         methods: {
             changeChallengeStatus: function(data) {
                 var challengeName = data.challenge.name;
@@ -66,6 +35,7 @@
                 }
             },
             createChallenge: function(data) {
+                        alert("bim")
                 var mappedData = {
                     name: data.challengeName,
                     description: data.description,

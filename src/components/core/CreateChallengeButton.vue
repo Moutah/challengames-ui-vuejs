@@ -28,7 +28,14 @@
         },
         methods: {
             createChallenge: function(data) {
-                this.$emit('createChallenge', data);
+                var mappedData = {
+                    name: data.challengeName,
+                    description: data.description,
+                    submitter: this.$store.getters.username,
+                    challengee: data.challengee,
+                    status: 'OPEN'
+                }
+                this.$store.commit('createChallenge', mappedData)
             }
         }
     }

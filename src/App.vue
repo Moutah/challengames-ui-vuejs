@@ -28,7 +28,8 @@
           temporary
         >
             <NavigationDrawerContent
-                :nbChallenges="myChallenges.length" :drawer="drawer"/>
+                @createChallenge="createChallenge"
+                :drawer="drawer"/>
         </v-navigation-drawer>
 
         <v-content>
@@ -49,10 +50,7 @@
         },
         data: function() {
             return {
-                drawer: false,
-                myChallenges: [
-                    "a"
-                ]
+                drawer: false
             }
         },
         methods: {
@@ -61,8 +59,10 @@
             },
             changeLocale : function(locale) {
                 $i18n.locale = locale;
+            },
+            createChallenge: function(data) {
+                this.drawer = false;
             }
-
         }
     }
 </script>

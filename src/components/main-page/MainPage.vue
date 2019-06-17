@@ -15,10 +15,7 @@
             <v-flex mb-5 xs12>
                 <h2 class="headline font-weight-bold mb-3">{{ $t('createChallengeMainPageTitle') }}</h2>
                 <p> {{ $t('createChallengeForAStart') }}</p>
-                <CreateChallengeButton
-                    @createChallenge="createChallenge"
-                    :connection="connection"/>
-
+                <CreateChallengeButton/>
                 <br/>
 
                 <v-text v-if="!$store.getters.isConnected">
@@ -39,7 +36,7 @@
 
             <v-flex xs12>
                 <h2>{{ $t('mostRecentChallengesTitle') }}</h2>
-                <MostRecentChallengesGrid ref="mostRecentChallengesGrid" />
+                <MostRecentChallengesGrid />
             </v-flex>
 
             <v-flex xs1></v-flex>
@@ -56,16 +53,6 @@
         components: {
             CreateChallengeButton,
             MostRecentChallengesGrid
-        },
-        props: [],
-        data () {
-            return {
-            }
-        },
-        methods: {
-            createChallenge: function(data) {
-                this.$refs.mostRecentChallengesGrid.createChallenge(data);
-            }
         }
     }
 </script>

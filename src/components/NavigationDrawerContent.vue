@@ -86,7 +86,10 @@
                                         {{ $t('addNewChallengeLabel') }}
                                     </button>
                                 </template>
-                                <CreateChallengeDialogContent @closeCreateChallengeDialog="dialogCreateChallenge = false" :connection="connection" :dialog="dialog" />
+                                <CreateChallengeDialogContent
+                                    @closeCreateChallengeDialog="dialogCreateChallenge = false"
+                                    @createChallenge="createChallenge"
+                                    :dialog="dialog" />
                             </v-dialog>
                         </v-list-tile-title>
                     </v-list-tile-content>
@@ -97,7 +100,7 @@
                         <v-list-tile-action>
                             <v-badge>
                                 <template v-slot:badge>
-                                    <span>{{nbChallenges}}</span>
+                                    <span>{{ $store.getters.myChallenges.length }}</span>
                                 </template>
                             </v-badge>
                         </v-list-tile-action>
@@ -137,14 +140,13 @@
         components: {
             CreateChallengeDialogContent
         },
-        props: ['drawer', 'nbChallenges'],
+        props: ['drawer'],
         data () {
             return {
                 dialog: false,
                 dialogCreateChallenge: false,
                 loginUsername: null,
-                loginLoading: false,
-                myChallenges: []
+                loginLoading: false
             }
         },
         methods: {
@@ -154,6 +156,17 @@
             login: function() {
                 this.$store.commit('login', this.loginUsername);
                 this.loginUsername = null;
+            },
+            createChallenge: function(data) {
+                var mappedData = {
+                    name: data.challengeName,
+                    description: data.description,
+                    submitter: this.$store.getters.username,
+                    challengee: data.challengee,
+                    status: 'OPEN'
+                }
+                this.$store.commit('createChallenge', mappedData)
+                this.$emit('createChallenge')
             }
         }
     }

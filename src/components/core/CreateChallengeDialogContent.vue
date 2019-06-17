@@ -61,6 +61,12 @@
                     'challengee': this.challengee
                 };
                 this.$emit("createChallenge", data);
+
+                // Clean form data
+                this.challengeName = '';
+                this.description = '';
+                this.challengee = '';
+
                 this.closeDialog();
             },
             closeDialog: function() {
